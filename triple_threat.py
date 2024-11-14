@@ -16,30 +16,28 @@ def main() -> None:
     totalin: int = 0 
     totalprofit: int = 0
     gamesplayed: int = random.randint(1000,5000)
-	
-    for _ in range(gamesplayed):
-        d1 = random.randint(1, 6)
-        d2 = random.randint(1, 6)
-        d3 = random.randint(1, 6)
+    days: int = input("How many days should the simulation run? ")
 
-        if d1 == d2 and d2 == d3 and d3 == d1:
-            prize = 10 * d1
-        else:
-            prize = 0
+    for _ in range(7):
+        for _ in range(gamesplayed):
+            d1: int = random.randint(1, 6)
+            d2: int = random.randint(1, 6)
+            d3: int = random.randint(1, 6)
+
+            if d1 == d2 and d2 == d3 and d3 == d1:
+                prize = 10 * d1
+            else:
+                prize = 0
         
-        if d1 == 6 and d2 == 6 and d3 == 6:
-            prize = d1 * 10
+            if d1 == 6 and d2 == 6 and d3 == 6:
+                prize = d1 * 10
 
-        totalout += prize
-        totalin += cost
-        profit = cost - prize
-        totalprofit += profit
-        """
-        print(f"Casino collects: ${cost}")
-        print(f"Player rolls: {d1}-{d2}-{d3}")
-        print(f"Casino pays out: ${prize}")
-        print(f"Profit: ${profit}")
-        """
+            totalout += prize
+            totalin += cost
+            profit = cost - prize
+            totalprofit += profit
+
+
     print("Games Played, Total Collected, Total Paid Out, Total Profit")
     print(f"{gamesplayed}, {totalin}, {totalout}, {totalprofit}")
 
